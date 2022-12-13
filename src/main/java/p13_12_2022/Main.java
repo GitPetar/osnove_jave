@@ -2,34 +2,43 @@ package p13_12_2022;
 
 import java.util.Scanner;
 
-public class Uvod {
+public class Main {
 
     public static void main(String[] args) {
 
-        String Ime = "Tester";
-        String Prezime = "Testic";
-        String Broj_Telefona = "666666";
-        String Ulica_i_Broj = "Ulica QA Testera 1000";
-        String Grad = "Testville";
-        String Email = "test@testmail.test";
-        int sifra = 1;
-        String Naziv_Proizvoda = "Test";
-        int cena = 100;
-        int popust = 99;
-        String Boja = "Plava";
-        String Velicina = "XXL";
+        Podaci Test = new Podaci();
+        Test.stampaj_podatke();
+        Proizvod Nike = new Proizvod();
+        Nike.stampaj_proizvod();
 
-        System.out.println(Ime + " " + Prezime);
-        System.out.println(Broj_Telefona + " " + Ulica_i_Broj + " " + Grad);
-        System.out.println(Email);
-        System.out.println("");
-        System.out.println("Idemo dalje...");
-        System.out.println("");
+        String String_Placeholder;
+        Scanner s = new Scanner(System.in);
 
-        System.out.println(sifra);
-        System.out.println(Naziv_Proizvoda+" - $"+cena+" - Popust "+popust+"%");
-        System.out.println(Boja+", "+Velicina);
-        System.out.println(" ");
+        System.out.println("Oces da ti stampam podatke o osobi? YES/NO");
+        String_Placeholder = s.nextLine();
+        if (String_Placeholder.equals("YES"))
+        {
+
+            System.out.println(Test.Ime + " " + Test.Prezime);
+            System.out.println(Test.Broj_Telefona + " " + Test.Ulica_i_Broj + " " + Test.Grad);
+            System.out.println(Test.Email);
+            System.out.println("");
+            System.out.println("Idemo dalje...");
+            System.out.println("");
+        }
+
+        System.out.println("Oces da ti stampam podatke o proizvodu? YES/NO");
+        String_Placeholder = s.nextLine();
+        if (String_Placeholder.equals("YES"))
+        {
+            System.out.println(Nike.sifra);
+            System.out.println(Nike.Naziv_Proizvoda + " - $" + Nike.cena + " - Popust " + Nike.popust + "%");
+            System.out.println(Nike.Boja + ", " + Nike.Velicina);
+            System.out.println(" ");
+        }
+        System.out.println("A cica glisu? YES/NO");
+        String_Placeholder = s.nextLine();
+        if (String_Placeholder.equals("YES")){
 
         System.out.println("Hangman");
         System.out.println("- - - -");
@@ -38,6 +47,6 @@ public class Uvod {
         System.out.println("|     /|\\ ");
         System.out.println("|      |");
         System.out.println("|");
-        System.out.println("_ _ _ _ _   _ _ _ A _");
+        System.out.println("_ _ _ _ _   _ _ _ A _");}
     }
 }
