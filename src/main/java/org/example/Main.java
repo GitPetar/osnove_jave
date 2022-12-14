@@ -16,7 +16,7 @@ public class Main {
             double a;
 
             //Petlja koja ce da rolluje statove dok se uslov ne ispuni
-            for (int i = 0; i < 10; ) {
+            for (int i = 0; i < 10;) {
                 a = Math.random() * 19;
                 strength = (int) a;
                 a = Math.random() * 19;
