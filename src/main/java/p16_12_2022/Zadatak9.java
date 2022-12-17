@@ -13,13 +13,13 @@ public class Zadatak9 {
         Scanner s = new Scanner(System.in);
         int duzina;
         int trenutnoVreme;
-        double procenat = 0.00;
+        int procenat;
 
         System.out.println("Unesite duzinu videa (s): ");
         duzina = s.nextInt();
         System.out.println("Unesite trenutno vreme videa (s): ");
         trenutnoVreme = s.nextInt();
-        procenat = ((double)trenutnoVreme / duzina) * 100;
+        procenat = (100 * trenutnoVreme) / duzina;
 
         for (int i = 1; i <= 100; i++) {
             if (i <= procenat) {
