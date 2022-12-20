@@ -1,4 +1,4 @@
-package domaci16_12_2022;
+package domaci_16_12_2022;
 import java.util.Scanner;
 //Napisati program koji simulira alarm. Alarm se ponavlja na svakih 5minuta narednih pola sata. Korisnik unosi sat i minut za koji zeli da navije alarm a program prikazuje vremena u kojima ce se alarm aktivirati
 public class ZaVezbanje1 {

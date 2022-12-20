@@ -1,4 +1,4 @@
-package domaci16_12_2022;
+package domaci_16_12_2022;
 
 //Napisati program koji stampa 25 _ (donjih crta), pritom na svaku 5. iteraciju odstampa i novi red. Zadatak resiti pomocu FOR petlje.
 //        Primer izvrsenja:

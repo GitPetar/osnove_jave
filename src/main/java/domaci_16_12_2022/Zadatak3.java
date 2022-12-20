@@ -1,4 +1,4 @@
-package domaci16_12_2022;
+package domaci_16_12_2022;
 
 public class Zadatak3 {
     public static void main(String[] args) {
