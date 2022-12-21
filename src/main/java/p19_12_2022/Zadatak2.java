@@ -1,4 +1,4 @@
-package p19_1_2022;
+package p19_12_2022;
 //Napisati program koji sumira parne brojeve od 1 do 50 i na kraju programa ispisuje sumu.
 public class Zadatak2 {
     public static void main(String[] args) {

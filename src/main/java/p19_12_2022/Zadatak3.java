@@ -1,4 +1,4 @@
-package p19_1_2022;
+package p19_12_2022;
 //Napisati program koji pronalazi 7 stepen broja 2. Koristeci FOR petlju
 //Izvrsenje:
 //2 na stepen 7 je 128

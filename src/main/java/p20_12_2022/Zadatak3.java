@@ -1,6 +1,5 @@
-package p20_1_2022;
+package p20_12_2022;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 //Zadatak

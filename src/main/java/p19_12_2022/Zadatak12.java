@@ -1,4 +1,4 @@
-package p19_1_2022;
+package p19_12_2022;
 
 import java.util.Scanner;
 
