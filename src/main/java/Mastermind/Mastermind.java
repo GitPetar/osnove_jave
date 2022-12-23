@@ -17,6 +17,7 @@ public class Mastermind {
         int naMestu;
         ArrayList<Character> kombinacija = new ArrayList<Character>();
         ArrayList<Character> placeholder = new ArrayList<>();
+        ArrayList<Character> placeholder1 = new ArrayList<>();
         ArrayList<Character> simboli = new ArrayList<Character>(Arrays.asList('~', '!', '@', '#', '$', '%', '^', '&', '*', '/'));
         String input;
 
@@ -35,7 +36,7 @@ public class Mastermind {
             velicinaKombinacije = s.nextInt();
 
             //Pravljenje kombinacije
-
+            kombinacija.clear();
             kombinacija.add(simboli.get(random.nextInt(brojSimbola)));
             for (int i = 1; i < velicinaKombinacije; i++) {
                 kombinacija.add(simboli.get(random.nextInt(brojSimbola)));
@@ -55,28 +56,41 @@ public class Mastermind {
                 System.out.print("Pokusaj " + (i + 1) + ": ");
                 input = s.next();
                 placeholder = new ArrayList<>(kombinacija);
+                placeholder1 = new ArrayList<>();
+                for (int j = 0; j < input.length(); j++) {
+                    placeholder1.add(input.charAt(j));
+                }
                 pogodjeno = 0;
                 naMestu = 0;
                 for (int j = 0; j < velicinaKombinacije; j++) {
-                    if (input.charAt(j) == placeholder.get(j)) {
+                    if (placeholder1.get(j) == placeholder.get(j)) {
                         naMestu++;
                     }
-                    if (input.contains(placeholder.get(j).toString())) {
-                        pogodjeno++;
+                    for (int k = 0; k < velicinaKombinacije; k++) {
+                        if (placeholder1.get(k) == placeholder.get(j)) {
+                            pogodjeno++;
+                            placeholder1.set(k, '0');
+                            break;
+                        }
+
                     }
                     placeholder.set(j, '0');
+                }
 
+
+                {
                 }
                 System.out.println(pogodjeno + " pogodjenih, " + naMestu + " na mestu.");
                 if (naMestu == velicinaKombinacije) {
                     System.out.println("Bravo!");
                     break;
                 }
-                System.out.println("Vise srece sledeci put!");
-
             }
-
+            System.out.println("Vise srece sledeci put!");
 
         }
+
+
     }
 }
+
