@@ -85,8 +85,11 @@ public class Mastermind {
                     System.out.println("Bravo!");
                     break;
                 }
+
+
             }
-            System.out.println("Vise srece sledeci put!");
+            System.out.println("Kombinacija je bila: " + kombinacija);
+
 
         }
 
