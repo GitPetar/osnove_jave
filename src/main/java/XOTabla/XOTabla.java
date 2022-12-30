@@ -46,7 +46,7 @@ public class XOTabla {
     public void stampaj() {
         System.out.print("|");
         for (int i = 0; i < 9; i++) {
-            System.out.print(polje.get(i) + "|");
+            System.out.print(""+polje.get(i) + "|");
             if ((i + 1) % 3 == 0) {
                 System.out.println();
                 if (i != 8) {
@@ -56,8 +56,8 @@ public class XOTabla {
 
 
         }
-        System.out.println("Igrac: " + imeXIgraca);
-        System.out.println("Igrac: " + imeOIgraca);
+        System.out.println("Igrac X: " + imeXIgraca);
+        System.out.println("Igrac O: " + imeOIgraca);
     }
 
     public boolean poljePrazno(int index) {
@@ -78,15 +78,15 @@ public class XOTabla {
 
     public void odigrajPotez(int index) {
         if (naPotezu == 'X') {
-            polje.set(index - 1, 'X');
+            polje.set(index, 'X');
         } else {
-            polje.set(index - 1, 'O');
+            polje.set(index, 'O');
         }
     }
 
     public boolean popunjenaTabla() {
         for (int i = 0; i < 9; i++) {
-            if (poljePrazno(polje.get(i))) {
+            if (poljePrazno(i)) {
                 return false;
             }
         }
