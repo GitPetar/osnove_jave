@@ -1,4 +1,4 @@
-package XOTabla; //ver 1.1.1
+package XOTabla; //ver 1.1.2 stable
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class Main {
         }
     }
 
-    public static boolean isBetweenOrEqual(int inputInt, int min, int max) {
+    public static boolean isBetweenOrEqual(int min, int inputInt, int max) {
         if (inputInt <= max && min <= inputInt) {
             return true;
         }
@@ -54,7 +54,7 @@ public class Main {
                 input = scanner.next();
                 if (isInteger(input)) {
                     tempInt = Integer.parseInt(input);
-                    if (isBetweenOrEqual(tempInt, 0, tabla.getPolje().size() - 1)) {
+                    if (isBetweenOrEqual(1, tempInt, tabla.getPolje().size())) {
                         if (tabla.poljePrazno(tempInt - 1)) { //brojevi 1 do 9 postaju 0 do 8
                             tabla.odigrajPotez(tempInt - 1);
                             tabla.zameniIgraca();
