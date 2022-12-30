@@ -8,6 +8,9 @@ public class XOTabla {
     private String imeOIgraca;
     private char naPotezu;
 
+    public ArrayList<Character> getPolje() {
+        return polje;
+    }
     public String getImeXIgraca() {
         return imeXIgraca;
     }

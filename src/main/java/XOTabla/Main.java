@@ -1,4 +1,4 @@
-package XOTabla; //ver 1.1.0
+package XOTabla; //ver 1.1.1
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,6 +14,13 @@ public class Main {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static boolean isBetweenOrEqual(int inputInt, int min, int max) {
+        if (inputInt <= max && min <= inputInt) {
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -47,34 +54,40 @@ public class Main {
                 input = scanner.next();
                 if (isInteger(input)) {
                     tempInt = Integer.parseInt(input);
-
-                    if (tabla.poljePrazno(tempInt - 1)) { //brojevi 1 do 9 postaju 0 do 8
-                        tabla.odigrajPotez(tempInt - 1);
-                        tabla.zameniIgraca();
+                    if (isBetweenOrEqual(tempInt, 0, tabla.getPolje().size() - 1)) {
+                        if (tabla.poljePrazno(tempInt - 1)) { //brojevi 1 do 9 postaju 0 do 8
+                            tabla.odigrajPotez(tempInt - 1);
+                            tabla.zameniIgraca();
+                        } else {
+                            System.out.println("Potez nije validan!");
+                        }
                     } else {
                         System.out.println("Potez nije validan!");
                     }
+                } else {
+                    System.out.println("Potez nije validan!");
                 }
             }
-
-            tabla.stampaj();
-            System.out.println();
-            if (tabla.pobednikX()) {
-                System.out.println("Pobednik je " + tabla.getImeXIgraca() + "!");
-            }
-            if (tabla.pobednikO()) {
-                System.out.println("Pobednik je " + tabla.getImeOIgraca() + "!");
-            }
-            if (tabla.popunjenaTabla()) {
-                System.out.println("Nereseno");
-            }
-            System.out.println();
-            System.out.print("Jos jedna igra? y/n: ");
-            if (!scanner.next().equals("y")) {
-                igraTraje = false;
-            }
-
         }
+
+        tabla.stampaj();
+        System.out.println();
+        if (tabla.pobednikX()) {
+            System.out.println("Pobednik je " + tabla.getImeXIgraca() + "!");
+        }
+        if (tabla.pobednikO()) {
+            System.out.println("Pobednik je " + tabla.getImeOIgraca() + "!");
+        }
+        if (tabla.popunjenaTabla()) {
+            System.out.println("Nereseno");
+        }
+        System.out.println();
+        System.out.print("Jos jedna igra? y/n: ");
+        if (!scanner.next().equals("y")) {
+            igraTraje = false;
+        }
+
     }
 }
+
 
