@@ -33,12 +33,9 @@ public class XOTabla {
     }
 
     public void pokreniIgru() {
+        polje.clear();
         for (int i = 0; i < 9; i++) {
-            if (polje.size() <= 9) {
-                polje.add(' ');
-            } else {
-                polje.set(i, ' ');
-            }
+            polje.add(' ');
         }
         naPotezu = 'X';
     }
@@ -46,7 +43,7 @@ public class XOTabla {
     public void stampaj() {
         System.out.print("|");
         for (int i = 0; i < 9; i++) {
-            System.out.print(""+polje.get(i) + "|");
+            System.out.print("" + polje.get(i) + "|");
             if ((i + 1) % 3 == 0) {
                 System.out.println();
                 if (i != 8) {
