@@ -1,4 +1,4 @@
-package XOTabla; //ver 1.1.2 stable
+package XOTabla; //ver 1.1.3 stable
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -68,7 +68,7 @@ public class Main {
                     System.out.println("Potez nije validan!");
                 }
             }
-        }
+
 
         tabla.stampaj();
         System.out.println();
@@ -85,7 +85,7 @@ public class Main {
         System.out.print("Jos jedna igra? y/n: ");
         if (!scanner.next().equals("y")) {
             igraTraje = false;
-        }
+        }}
 
     }
 }
