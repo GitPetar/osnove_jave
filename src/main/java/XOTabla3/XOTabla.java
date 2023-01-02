@@ -1,4 +1,4 @@
-package XOTabla2;
+package XOTabla3;
 
 import java.util.ArrayList;
 
@@ -11,12 +11,12 @@ public class XOTabla {
     private char naPotezu;
     private int brojRedova;
 
-    public int getBrojPolja() {
+    public int getBrojRedova() {
         return brojRedova;
     }
 
-    public void setBrojPolja(int brojPolja) {
-        this.brojRedova = brojPolja;
+    public void setBrojRedova(int brojRedova) {
+        this.brojRedova = brojRedova;
     }
 
     public ArrayList<String> getPolje() {
@@ -47,16 +47,20 @@ public class XOTabla {
         this.imeOIgraca = imeOIgraca;
     }
 
-    public void pokreniIgru() {
+    public void winningLine(int tempInt) {
         winningLineX = "";
         winningLineO = "";
+        for (int i = 0; i < tempInt; i++) {
+            winningLineX += 'X';
+            winningLineO += 'O';
+        }
+    }
+
+    public void pokreniIgru() {
+
         polje.clear();
         for (int i = 0; i < brojRedova * brojRedova; i++) {
             polje.add("" + (i + 1));
-        }
-        for (int i = 0; i < brojRedova; i++) {
-            winningLineX += 'X';
-            winningLineO += 'O';
         }
         naPotezu = 'X';
     }
@@ -118,51 +122,97 @@ public class XOTabla {
 
     public char checkWinner() {
         String line;
+        int tempInt;
+        //Gledaju se redovi
         for (int i = 0; i < brojRedova; i++) {
             line = "";
             for (int j = 0; j < brojRedova; j++) {
                 line += polje.get((i * brojRedova) + j);
-                if (line.equals(winningLineX)) {
+                if (line.contains(winningLineX)) {
                     return 'X';
                 }
-                if (line.equals(winningLineO)) {
+                if (line.contains(winningLineO)) {
                     return 'O';
                 }
             }
         }
+        //Gledaju se kolone
         for (int i = 0; i < brojRedova; i++) {
             line = "";
             for (int j = 0; j < brojRedova; j++) {
                 line += polje.get(i + (j * brojRedova));
-                if (line.equals(winningLineX)) {
+                if (line.contains(winningLineX)) {
                     return 'X';
                 }
-                if (line.equals(winningLineO)) {
+                if (line.contains(winningLineO)) {
                     return 'O';
                 }
             }
         }
-        line = "";
+        //Gledaju se dijagonale \ prvog reda
         for (int i = 0; i < brojRedova; i++) {
-            line += polje.get(i * (brojRedova + 1));
-            if (line.equals(winningLineX)) {
-                return 'X';
-            }
-            if (line.equals(winningLineO)) {
-                return 'O';
+            line = "";
+            for (int j = 0; j < brojRedova; j++) {
+                tempInt = i + j * (brojRedova + 1);
+                if (tempInt < polje.size()) {
+                    line += polje.get(tempInt);
+                }
+                if (line.contains(winningLineX)) {
+                    return 'X';
+                }
+                if (line.contains(winningLineO)) {
+                    return 'O';
+                }
             }
         }
-        line = "";
+        //Gledaju se dijagonale \ prve kolone
         for (int i = 0; i < brojRedova; i++) {
-            line += polje.get((i + 1) * (brojRedova - 1));
-            if (line.equals(winningLineX)) {
-                return 'X';
-            }
-            if (line.equals(winningLineO)) {
-                return 'O';
+            line = "";
+            for (int j = 0; j < brojRedova; j++) {
+                tempInt = i * brojRedova + j * (brojRedova + 1);
+                if (tempInt < polje.size()) {
+                    line += polje.get(tempInt);
+                }
+                if (line.contains(winningLineX)) {
+                    return 'X';
+                }
+                if (line.contains(winningLineO)) {
+                    return 'O';
+                }
             }
         }
-
+        // Gledaju se dijagonale / prvog reda
+        for (int i = 0; i < brojRedova; i++) {
+            line = "";
+            for (int j = 0; j < brojRedova; j++) {
+                tempInt = i + j * (brojRedova - 1);
+                if (tempInt < polje.size()) {
+                    line += polje.get(tempInt);
+                }
+                if (line.contains(winningLineX)) {
+                    return 'X';
+                }
+                if (line.contains(winningLineO)) {
+                    return 'O';
+                }
+            }
+        }
+        // Gledaju se dijagonale / zadnje kolone
+        for (int i = 0; i < brojRedova; i++) {
+            line = "";
+            for (int j = 0; j < brojRedova; j++) {
+                tempInt = (i + 1) * brojRedova - 1 + j * (brojRedova - 1);
+                if (tempInt < polje.size()) {
+                    line += polje.get(tempInt);
+                }
+                if (line.contains(winningLineX)) {
+                    return 'X';
+                }
+                if (line.contains(winningLineO)) {
+                    return 'O';
+                }
+            }
+        }
         return '0';
     }
 }

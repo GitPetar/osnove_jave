@@ -1,4 +1,4 @@
-package XOTabla2; //ver 2.0
+package XOTabla2; //ver 2.0.1
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -26,7 +26,7 @@ public class Main {
         //Tabela se pravi
 
         while (igraTraje) {
-            System.out.print("Unesite broj polja: ");
+            System.out.print("Unesite broj redova: ");
             input = scanner.next();
             if (XOTabla2.GameLogic.isInteger(input)) {
                 tempInt = Integer.parseInt(input);
