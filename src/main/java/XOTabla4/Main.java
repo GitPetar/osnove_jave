@@ -1,4 +1,4 @@
-package XOTabla4; //ver 4.0.0
+package XOTabla4; //ver 4.1.0
 
 import java.util.Scanner;
 
@@ -9,7 +9,6 @@ public class Main {
         XOTabla tabla = new XOTabla(); //ovde se skoro sve odvija
         boolean igraTraje = true; //sluzi da bi igraci mogli da ponavljaju igru bez da ponovo pokrecu program
         boolean protivKompjutera = false;
-        int tempInt = 0;
 
         //Krecemo lagano sa imenima
 
@@ -20,7 +19,7 @@ public class Main {
 
         //AI
 
-        System.out.println("Da li želite da se odmerite protiv kompjutera? y/n: ");
+        System.out.print("Da li želite da se odmerite protiv kompjutera? y/n: ");
         if (scanner.next().equals("y")) {
             protivKompjutera = true;
         }

@@ -118,97 +118,24 @@ public class XOTabla {
     }
 
     public char checkWinner() {
-        String line;
-        int tempInt;
-        //Gledaju se redovi
+        //Proverava sve linije
+        StringBuilder line1 = new StringBuilder(); // Horizontalno
+        StringBuilder line2 = new StringBuilder(); // Vertikalno
+        StringBuilder line3 = new StringBuilder(); // Dijagonalno \
+        StringBuilder line4 = new StringBuilder(); // Dijagonalno /
         for (int i = 0; i < brojRedova; i++) {
-            line = "";
             for (int j = 0; j < brojRedova; j++) {
-                line += polje.get((i * brojRedova) + j);
-                if (line.contains(winningLineX)) {
-                    return 'X';
-                }
-                if (line.contains(winningLineO)) {
-                    return 'O';
-                }
+                line1.append(polje.get(i * brojRedova + j));
+                line2.append(polje.get(j * brojRedova + i));
+                line3.append(polje.get(j * brojRedova + j));
+                line4.append(polje.get(j * brojRedova + (brojRedova - j - 1)));
             }
         }
-        //Gledaju se kolone
-        for (int i = 0; i < brojRedova; i++) {
-            line = "";
-            for (int j = 0; j < brojRedova; j++) {
-                line += polje.get(i + (j * brojRedova));
-                if (line.contains(winningLineX)) {
-                    return 'X';
-                }
-                if (line.contains(winningLineO)) {
-                    return 'O';
-                }
-            }
+        if (line1.toString().contains(winningLineX) || line2.toString().contains(winningLineX) || line3.toString().contains(winningLineX) || line4.toString().contains(winningLineX)) {
+            return 'X';
         }
-        //Gledaju se dijagonale \ prvog reda
-        for (int i = 0; i < brojRedova; i++) {
-            line = "";
-            for (int j = 0; j < brojRedova; j++) {
-                tempInt = i + j * (brojRedova + 1);
-                if (tempInt < polje.size()) {
-                    line += polje.get(tempInt);
-                }
-                if (line.contains(winningLineX)) {
-                    return 'X';
-                }
-                if (line.contains(winningLineO)) {
-                    return 'O';
-                }
-            }
-        }
-        //Gledaju se dijagonale \ prve kolone
-        for (int i = 0; i < brojRedova; i++) {
-            line = "";
-            for (int j = 0; j < brojRedova; j++) {
-                tempInt = i * brojRedova + j * (brojRedova + 1);
-                if (tempInt < polje.size()) {
-                    line += polje.get(tempInt);
-                }
-                if (line.contains(winningLineX)) {
-                    return 'X';
-                }
-                if (line.contains(winningLineO)) {
-                    return 'O';
-                }
-            }
-        }
-        // Gledaju se dijagonale / prvog reda
-        for (int i = 0; i < brojRedova; i++) {
-            line = "";
-            for (int j = 0; j < brojRedova; j++) {
-                tempInt = i + j * (brojRedova - 1);
-                if (tempInt < polje.size()) {
-                    line += polje.get(tempInt);
-                }
-                if (line.contains(winningLineX)) {
-                    return 'X';
-                }
-                if (line.contains(winningLineO)) {
-                    return 'O';
-                }
-            }
-        }
-        // Gledaju se dijagonale / zadnje kolone
-        for (int i = 0; i < brojRedova; i++) {
-            line = "";
-            for (int j = 0; j < brojRedova; j++) {
-                tempInt = (i + 1) * brojRedova - 1 + j * (brojRedova - 1);
-                if (tempInt < polje.size()) {
-                    line += polje.get(tempInt);
-                }
-                if (line.contains(winningLineX)) {
-                    return 'X';
-                }
-                if (line.contains(winningLineO)) {
-                    return 'O';
-                }
-            }
+        if (line1.toString().contains(winningLineO) || line2.toString().contains(winningLineO) || line3.toString().contains(winningLineO) || line4.toString().contains(winningLineO)) {
+            return 'O';
         }
         return '0';
     }
@@ -235,7 +162,7 @@ public class XOTabla {
                 temp = polje.get(i);
                 polje.set(i, "O");
                 if (checkWinner() == 'O') {
-                    polje.set(i,temp);
+                    polje.set(i, temp);
                     return i;
                 }
                 polje.set(i, temp);
@@ -257,6 +184,6 @@ public class XOTabla {
 
         // If the AI can't win and doesn't need to block, then play randomly
         int index = (int) (Math.random() * polje.size());
-            return index;
+        return index;
     }
 }
