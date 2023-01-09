@@ -1,4 +1,4 @@
-package XOTabla3;
+package XOTabla4;
 
 //Ova klasa sluzi da stavljam static metode u nju
 public class GameLogic {

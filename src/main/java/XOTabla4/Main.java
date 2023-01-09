@@ -1,18 +1,15 @@
-package XOTabla3; //ver 3.0.3
+package XOTabla4; //ver 4.0.0
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        //Varijable
-
         Scanner scanner = new Scanner(System.in); //skener
         XOTabla tabla = new XOTabla(); //ovde se skoro sve odvija
-        tabla.setPolje(new ArrayList<String>()); //lista polja
         boolean igraTraje = true; //sluzi da bi igraci mogli da ponavljaju igru bez da ponovo pokrecu program
+        boolean protivKompjutera = false;
+        int tempInt = 0;
 
         //Krecemo lagano sa imenima
 
@@ -21,6 +18,12 @@ public class Main {
         System.out.print("Unesite ime igraca O: ");
         tabla.setImeOIgraca(scanner.next());
 
+        //AI
+
+        System.out.println("Da li želite da se odmerite protiv kompjutera? y/n: ");
+        if (scanner.next().equals("y")) {
+            protivKompjutera = true;
+        }
         //Tabela se pravi
 
         while (igraTraje) {
@@ -33,11 +36,13 @@ public class Main {
             //while petlja u kojoj se igra
 
             while (!tabla.popunjenaTabla() && tabla.checkWinner() == '0') {
-
                 tabla.stampaj();
-                System.out.print("Na potezu je igrac " + tabla.getNaPotezu() + ": ");
-
-                tabla.odigrajPotez(GameLogic.isInteger(scanner.next()));
+                if (tabla.getNaPotezu() == 'O' && protivKompjutera) {
+                    tabla.odigrajPotez(tabla.aiLogika()+1);
+                } else {
+                    System.out.print("Na potezu je igrac " + tabla.getNaPotezu() + ": ");
+                    tabla.odigrajPotez(GameLogic.isInteger(scanner.next()));
+                }
             }
 
             tabla.stampaj();
@@ -47,8 +52,8 @@ public class Main {
                 igraTraje = false;
             }
         }
-
     }
+
 }
 
 

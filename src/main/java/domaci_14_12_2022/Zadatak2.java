@@ -1,6 +1,5 @@
 package domaci_14_12_2022;
 
-import sun.security.x509.OtherName;
 
 import java.util.Scanner;
 

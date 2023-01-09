@@ -1,9 +1,9 @@
-package XOTabla3;
+package XOTabla4;
 
 import java.util.ArrayList;
 
 public class XOTabla {
-    private ArrayList<String> polje;
+    private ArrayList<String> polje = new ArrayList<String>();
     private String winningLineX;
     private String winningLineO;
     private String imeXIgraca;
@@ -29,10 +29,6 @@ public class XOTabla {
 
     public char getNaPotezu() {
         return naPotezu;
-    }
-
-    public void setPolje(ArrayList<String> polje) {
-        this.polje = polje;
     }
 
     public void setImeXIgraca(String imeXIgraca) {
@@ -63,7 +59,7 @@ public class XOTabla {
 
     public void stampaj() {
         System.out.print("|");
-        for (int i = 0; i < brojRedova * brojRedova; i++) {
+        for (int i = 0; i < polje.size(); i++) {
             if (i < 9 || !poljePrazno(i)) {
                 System.out.print(" " + polje.get(i) + "|");
             } else {
@@ -71,12 +67,10 @@ public class XOTabla {
             }
             if ((i + 1) % brojRedova == 0) {
                 System.out.println();
-                if (i != (brojRedova * brojRedova) - 1) {
+                if (i != (polje.size()) - 1) {
                     System.out.print("|");
                 }
             }
-
-
         }
         System.out.println("Igrac X: " + imeXIgraca);
         System.out.println("Igrac O: " + imeOIgraca);
@@ -231,5 +225,38 @@ public class XOTabla {
         }
         System.out.println();
         System.out.print("Jos jedna igra? y/n: ");
+    }
+
+    public int aiLogika() {
+        String temp;
+        // First, check if the AI can win in the next move
+        for (int i = 0; i < polje.size(); i++) {
+            if (poljePrazno(i)) {
+                temp = polje.get(i);
+                polje.set(i, "O");
+                if (checkWinner() == 'O') {
+                    polje.set(i,temp);
+                    return i;
+                }
+                polje.set(i, temp);
+            }
+        }
+
+        // If the AI can't win, then check if it needs to block the player from winning
+        for (int i = 0; i < polje.size(); i++) {
+            if (poljePrazno(i)) {
+                temp = polje.get(i);
+                polje.set(i, "X");
+                if (checkWinner() == 'X') {
+                    polje.set(i, temp);
+                    return i;
+                }
+                polje.set(i, temp);
+            }
+        }
+
+        // If the AI can't win and doesn't need to block, then play randomly
+        int index = (int) (Math.random() * polje.size());
+            return index;
     }
 }
