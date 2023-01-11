@@ -168,7 +168,6 @@ public class XOTabla {
                 polje.set(i, temp);
             }
         }
-
         // If the AI can't win, then check if it needs to block the player from winning
         for (int i = 0; i < polje.size(); i++) {
             if (poljePrazno(i)) {
@@ -181,7 +180,6 @@ public class XOTabla {
                 polje.set(i, temp);
             }
         }
-
         // If the AI can't win and doesn't need to block, then play randomly
         int index = (int) (Math.random() * polje.size());
         return index;

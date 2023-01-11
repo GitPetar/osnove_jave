@@ -1,6 +1,6 @@
 package domaci_27_12_2022;
 
-import org.example.Main;
+
 
 public class Proizvod {
     String naziv;
