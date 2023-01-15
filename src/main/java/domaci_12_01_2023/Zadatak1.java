@@ -30,7 +30,7 @@ public class Zadatak1 {
         int tempInt;
         int counter = 0;
 
-        //napravi
+        //pravi bazu podataka
         for (int i = 0; i < 10; i++) {
             kartoni.add(new ZeleniKarton());
             kartoni.get(i).setImeIPrezime("Student " + (i + 1));
@@ -48,6 +48,8 @@ public class Zadatak1 {
                 kartoni.get(i).setImeIPrezimeProfesora("Profesor X");
             }
         }
+
+        //ostatak je stampanje
 
         System.out.println("Podaci svih ispita: ");
         for (ZeleniKarton karton : kartoni) {
