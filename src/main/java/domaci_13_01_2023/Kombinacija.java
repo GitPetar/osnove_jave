@@ -37,10 +37,12 @@ public class Kombinacija {
     }
 
     public boolean daLiJeIstaKombinacija(Kombinacija k) {
-        if (this.equals(k)) {
-            return true;
+        for (int i = 0; i < this.niz.size(); i++) {
+            if (this.niz.get(i) != k.niz.get(i)) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
     public void stampaj() {

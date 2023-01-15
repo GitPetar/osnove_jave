@@ -40,7 +40,7 @@ public class Zadatak2 {
 
         Listic listic = new Listic();
 
-        for (int i = 0; i < 10; i++) { //Ponavlja se 10 puta, cisto onako
+        while (!listic.dobitna(dobitna)){ //skoro pa infinite loop. Da bi se lakse testiralo, moze da se zameni broj 39 sa 7 u konstruktoru.
 
             listic = new Listic();
             for (int j = 0; j < 7; j++) {
