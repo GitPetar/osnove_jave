@@ -1,14 +1,5 @@
-package Domaci_16_01_2023;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
-//Zadatak
-//Kreirati klasu Karton koja ima:
-//tip kartona (crveni, zuti)
-//konstuktore za koje mislite da ce vam trebati
-//gettere i settere za karton
-//
+package domaci_16_01_2023;
+//1.Zadatak
 //Kreirati klasu Osoba koja ima:
 //ime i prezime
 //jmbg
@@ -22,19 +13,24 @@ import java.util.Scanner;
 //Kreirati klasu Igrac koja nasledjuje klasu Osoba i koja ima:
 //broj (broj koji igrac nosi)
 //poziciju koju igra (odbrambeni, napadac, … )
-//niz kartona
 //kapiten (promenljiva koja kaze da li je igrac kapiten tima, i tipa je boolean)
 //default-ni konstuktor
 //konstuktor sa parametrima
 //gettere i settere za broj, kapiten i poziciju
-//metodu dodaj karton, gde se dodaje karton u niz
-//metodu koja vraca broj zutih kartona
-//metodu koja vraca broj crvenih kartona
 //metodu stampaj, koju prepisuje iz glavne klase, tako da stampa sve informacije o igracu
 //
+//Kreirati klasu Trener koja nasledjuje klasu Osoba i koja ima:
+//godine iskustva
+//tip trenera (kondicioni, za igru, pomocni, personalni)
+//metodu stampaj, koju prepisuje iz glavne klase, tako da stampa sve informacije o treneru.
 //
-//U glavnom programu kreirati igraca i dodati mu nekoliko kartona.
-public class Zadatak2 {
+//U glavnom programu kreirati 2 igraca i 2 trenera, i istestirati metode.
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+//(Za vezbanje) U glavnom programu kreirati niz igraca i niz trenera, na kraju programa ispisati sve igrace i trenere. Podatke za igrace i trenere unosi korisnik sa tastature.
+public class Zadatak1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Igrac> igraci = new ArrayList<>();
@@ -60,12 +56,6 @@ public class Zadatak2 {
             input = scanner.next();
             if (input.equals("da")) {
                 igraci.get(i).setKapiten(true);
-            }
-            System.out.print("A da mu damo neki karton? da/ne ");
-            input = scanner.next();
-            if (input.equals("da")) {
-                System.out.print("crveni/zuti ");
-                igraci.get(i).dodajKarton(scanner.next());
             }
         }
 
